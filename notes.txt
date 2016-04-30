@@ -1,0 +1,15 @@
+MapFish Print 3: Reporting meets maps
+
+Generating reports is an important feature in many web-mapping applications. MapFish Print 3 is an interesting tool for this job. The project MapFish Print project consists of a Java library and a web application for generating reports with maps from many different raster and vector sources, like WMS, WMTS, tile services, WFS or GeoJSON.
+
+The integration with the reporting engine JasperReports facilitates the creation of complex reports. A WYSIWYG report designer makes it easy to layout report templates and to position tables, graphics, diagrams, sub-reports, maps or map components like scale-bars or legends.
+
+This talk introduces MapFish Print 3 and addresses the following topics:
+
+    The architecture of MapFish Print 3
+    The configuration of report templates
+    Using the report designer
+    Examples for complex reports
+    JavaScript libraries that ease the integration with OpenLayers projects
+    Upgrade from the previous version
+    New features and current developments
