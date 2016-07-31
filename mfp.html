@@ -124,14 +124,14 @@
           </div>
         </section>
         <section>
-          <h1 class="beefy">Print CSS style sheets</h1>
+          <h1 class="beefy">Print CSS stylesheets</h1>
           <img src="img/google-maps.png" style="width: 350px; border: 1px solid black;">
           <aside class="notes">
           + simple
           + reuse site stylesheet
           - browser page header/footers
           - no higher DPI
-          - missing tiles
+          - missing tiles?
           - no 100% control on the layout (pixel-perfect)
           </aside>
         </section>
@@ -144,12 +144,17 @@
           + higher DPI possible
           + geo-data is rendered as seen on the map
           - layouting programmatically
-          ! cors
+          ! CORS
           </aside>
         </section>
         <section>
           <h1 class="beefy">Generate PDF with wkhtmltopdf</h1>
-          todo: thinkhazard
+          <div style="position: relative;">
+            <img src="img/thinkhazard-website.png"
+              style="width: 650px; border: 1px solid black;">
+            <img src="img/thinkhazard-pdf.png"
+              style="position: absolute; top: 170px; left: 330px; width: 650px; border: 1px solid black;">
+          </div>
           <aside class="notes">
           similar to in-browser print, but more control on the layout
 
@@ -159,6 +164,13 @@
           - higher dpi?
           </aside>
         </section>
+        <section>
+          <h1 class="beefy">Build your own</h1>
+          TODO gr
+          <aside class="notes">
+          - layouting programmatically
+          </aside>
+        </section>
         <section data-background="img/notes.jpg">
           <div class="bg-box">
             <h1 class="big">Checklist</h1>
@@ -166,10 +178,17 @@
               <li>Higher resolutions?</li>
               <li class="fragment">Page formats?</li>
               <li class="fragment">Supported geo-data?</li>
-              <li class="fragment">Layouting?</li>
+              <li class="fragment">Layouting/templates?</li>
               <li class="fragment">Client vs. server?</li>
             </ul>
           </div>
+          <aside class="notes">
+          - can you print the map in a higher resolution?
+          - are page formats other than A4 supported?
+          - which geo-data can be used?
+          - layouting programmatically or with templates?
+          - generate report client or server-side?
+          </aside>
         </section>
         <section>
           <h1 class="beefy">MapFish Print?</h1>
@@ -271,7 +290,7 @@ templates:
     "map": {
       "projection": "EPSG:3857",
       "dpi": 72,
-      "center": [957352.8034848921, 5936844.140278816],
+      "center": [957352, 5936844],
       "scale": 25000,
       "layers": [
         { "type": "osm", "baseURL": "http://tile.abc.com"}
@@ -321,22 +340,15 @@ templates:
 },</code></pre>
         </section>
         <section>
-          <h1 class="big">Maps are cool.</h1>
-          <h1 class="big">But we can do more!</h1>
-        </section>
-        <section>
           <h1 class="beefy">Tables</h1>
           <a href="sample-reports/table.pdf" target="_blank"><img src="img/table.png" style="width: 800px; "></a>
         </section>
         <section>
-          <h1 class="beefy">What is more awesome than a map? More maps!</h1>
-          todo
-          <img class="fragment" src="img/multiple-maps.png" style="width: 400px; ">
-          <img class="fragment" src="img/driving-directions.png" style="width: 300px; ">
+          <h1 class="beefy">Support for multiple maps (datasource)</h1>
+          <img src="img/multiple-maps.png" style="width: 400px; ">
         </section>
         <section>
           <h1 class="beefy">Charts</h1>
-          todo
           <img src="img/charts.png" style="width: 800px; ">
         </section>
         <section>
@@ -346,22 +358,23 @@ templates:
         </section>
         <section>
           <h1 class="beefy">Client side support</h1>
-          todo: ngeo, geoext?
-          <p>CGXP Plugin: <a href="http://docs.camptocamp.net/cgxp/master/lib/plugins/Print.html"
-            target="_blank">cgxp.plugins.Print</a></p>
-          <img src="img/cgxp.png" style="width: 100%; ">
+          <p>
+            <a href="https://github.com/camptocamp/ngeo" target="_blank">ngeo</a>
+            (OpenLayer 3/Angular):
+            <a href="https://camptocamp.github.io/ngeo/master/examples/contribs/gmf/apps/desktop/index.html"
+            target="_blank">Example</a>
+          </p>
+          <p>
+            <a href="https://geoext.github.io/geoext3/" target="_blank">GeoExt 3</a>:
+            <a href="http://rawgit.com/geoext/geoext3/master/examples/print/basic-mapfish.html"
+            target="_blank">Example</a>
+          </p>
+          <img src="img/ngeo.png" style="width: 100%; border: 1px solid black;">
         </section>
         <section>
           <h1 class="beefy">Pluggable Architecture</h1>
           todo ?
           <img src="img/plugins.jpg" style="width: 800px;">
-        </section>
-        <section>
-          <h1 class="beefy">Backwards Compatibility</h1>
-          <ul style="height: 300px; ">
-            <li>Completely new configuration</li>
-            <li>Compatibility API for legacy clients</li>
-          </ul>
         </section>
         <section>
           <h1 class="beefy">MapFish Print 3</h1>
@@ -379,10 +392,13 @@ templates:
           </p>
         </section>
         <section>
-          todo: image licenses
+          <img src="img/logo_c2c_end.png" style="width: 100%; ">
         </section>
         <section>
-          <img src="img/logo_c2c_end.png" style="width: 100%; ">
+          <h1 class="beefy">Credits for these great photos!</h1>
+          <a href="https://stocksnap.io/photo/7UBV6POTLR" target="_blank"><img src="img/map.jpg" width="200"></a>
+          <a href="https://stocksnap.io/photo/3KVFJ6WC8X" target="_blank"><img src="img/crayons.jpg" width="200"></a><br>
+          <a href="https://stocksnap.io/photo/62IPO7VGWF" target="_blank"><img src="img/notes.jpg" width="200"></a>
         </section>
       </div>
     </div>
@@ -394,7 +410,7 @@ templates:
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,
+        controls: false,
         progress: true,
         history: true,
         center: true,
