@@ -166,7 +166,18 @@
         </section>
         <section>
           <h1 class="beefy">Build your own</h1>
-          TODO gr
+          <pre><code>...
+c.drawImage(self.logo, ...)
+c.setFont('Helvetica', 24)
+c.drawRightString(..., 'Report')
+c.setFont('Helvetica', 9)
+c.drawRightString(
+    ..., time.strftime('Created at %d/%m/%Y %Hh%M'))
+c.setLineWidth(3)
+c.setStrokeColor(report_blue)
+c.line(0, 1, self.width, 1)
+c.restoreState()
+...</code></pre>
           <aside class="notes">
           - layouting programmatically
           </aside>
@@ -193,6 +204,10 @@
         <section>
           <h1 class="beefy">MapFish Print?</h1>
           <img src="img/sample_bl.png" style="width: 90%; ">
+          <aside class="notes">
+          Java library and web-application to create reports with
+          maps and map-related components (scalebars, north-arrow, legends)
+          </aside>
         </section>
         <section>
           <h1 class="beefy">MapFish Print 3</h1>
@@ -221,10 +236,21 @@
               <p>Web API / Security / Widgets</p>
             </div>
           </div>
+          <aside class="notes">
+          built on mature open-source libraries: GeoTools for mapping,
+          JasperReports as reporting engine (layouting) and Spring
+          for a plugin architecture. MFP itself provides a web API and
+          additional report widgets.
+          </aside>
         </section>
         <section>
           <h1 class="beefy">Print Process</h1>
           <img src="img/process.png" style="width: 600px; ">
+          <aside class="notes">
+          The configuration consists of a YAML and a report template. To
+          generate a report, a print request containing attributes like the
+          report title, map extent and layer is sent.
+          </aside>
         </section>
         <section>
           <h1 class="beefy">YAML Configuration</h1>
@@ -237,6 +263,11 @@ templates:
     processors:
       ...
           </code></pre>
+          <aside class="notes">
+          The YAML config file defines different report templates. Each
+          template must reference a template and list attributes and
+          processors. The attributes define the input for processors, which do the actual work (like rendering the map).
+          </aside>
         </section>
         <section>
           <h1 class="beefy">YAML Configuration (attributes)</h1>
@@ -256,6 +287,11 @@ templates:
     processors:
       ...
           </code></pre>
+          <aside class="notes">
+          Attributes are either inputs for processors or passed as-is
+          to the template. There can be simple attributes (like 'title')
+          or attributes of a specific type (e.g. 'map').
+          </aside>
         </section>
         <section>
           <h1 class="beefy">YAML Configuration (processors)</h1>
@@ -273,12 +309,20 @@ templates:
       outputMapper: {mapSubReport: mapSubReport}
     - !createScalebar {}
           </code></pre>
+          <aside class="notes">
+          The processors work with the passed-in attributes to render the
+          map, to generate tables or scalebars.
+          </aside>
         </section>
         <section>
           <h1 class="beefy">Report Designer: Jaspersoft Studio</h1>
           <a target="_blank" href="https://github.com/tsauerwein/talks_fossgis2015/blob/master/sample-config/report.jrxml">
             <img src="img/jaspersoft-studio.png" style="width: 800px;">
           </a>
+          <aside class="notes">
+          The templates can be edited with a WYSIWYG editor JasperSoft Studio
+          to show attribute values in fields or to layout map components.
+          </aside>
         </section>
         <section>
           <h1 class="beefy">Print Request</h1>
@@ -298,6 +342,10 @@ templates:
     }
   }
 }</code></pre>
+          <aside class="notes">
+          The print request uses the JSON format and species for example the
+          report title, the map extent and the geo-data that should be shown.
+          </aside>
         </section>
         <section>
           <h1 class="beefy">Map Widgets</h1>
@@ -346,6 +394,11 @@ templates:
         <section>
           <h1 class="beefy">Support for multiple maps (datasource)</h1>
           <img src="img/multiple-maps.png" style="width: 400px; ">
+          <aside class="notes">
+          JasperRepors templates can work with datasources to generate reports
+          for a set of data. MPF allows to use this technique to create reports
+          with multiple maps, tables, ...
+          </aside>
         </section>
         <section>
           <h1 class="beefy">Charts</h1>
@@ -353,8 +406,12 @@ templates:
         </section>
         <section>
           <h1 class="beefy">External datasources</h1>
-          todo: example
           <img src="img/datasources.png" style="width: 800px; ">
+          <aside class="notes">
+          External datasources can directly be configured for a template.
+          This allows to load data for a report from a database, so that
+          the data does not have to be included in the print request.
+          </aside>
         </section>
         <section>
           <h1 class="beefy">Client side support</h1>
@@ -373,22 +430,30 @@ templates:
         </section>
         <section>
           <h1 class="beefy">Pluggable Architecture</h1>
-          todo ?
           <img src="img/plugins.jpg" style="width: 800px;">
+          <aside class="notes">
+          The pluggable architecture makes it easier to add new components,
+          e.g. to support a different geo-data format, to create a new
+          report widget, ...
+          </aside>
         </section>
         <section>
           <h1 class="beefy">MapFish Print 3</h1>
-          <p>MapFish Print on GitHub: <br/><a href="https://github.com/mapfish/mapfish-print"
+          <p><span class="fat">MapFish Print on GitHub</span><br/><a href="https://github.com/mapfish/mapfish-print"
               target="_blank">github.com/mapfish/mapfish-print</a></p>
           <p>&nbsp;</p>
-          <p>This presentation: <br/><a href="http://bit.ly/foss4g-mfp"
+          <p><span class="fat">This presentation</span><br/><a href="http://bit.ly/foss4g-mfp"
               target="_blank">bit.ly/foss4g-mfp</a></p>
           <p>&nbsp;</p>
-          <p>Me on GitHub/Twitter: <br/>@tsauerwein<br/>
+          <p><span class="fat">Find us on GitHub/Twitter</span><br/>
+            Tobias: @tsauerwein<br/>
             <a href="https://github.com/tsauerwein"
               target="_blank"><img src="img/github.png"></a>
             <a href="https://twitter.com/tsauerwein"
-              target="_blank"><img src="img/twitter.png"></a>
+              target="_blank"><img src="img/twitter.png"></a><br/>
+            Marion: @marionb<br/>
+            <a href="https://github.com/marionb"
+              target="_blank"><img src="img/github.png"></a>
           </p>
         </section>
         <section>
@@ -415,6 +480,7 @@ templates:
         history: true,
         center: true,
         rollingLinks: false,
+        showNotes: false,
         transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none,
 
         // Optional libraries used to extend on reveal.js
